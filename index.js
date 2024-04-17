@@ -58,22 +58,22 @@ app.get('/product/:id', async (req, res) => {
         ];
 
         // Render the product detail page with fetched data
-        let html = '<!DOCTYPE html>';
-        html += '<html lang="en">';
-        html += '<head>';
-        html += '<meta charset="UTF-8">';
-        html += '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
-        html += '<title>Product Detail</title>';
-        html += '</head>';
-        html += '<body>';
-        html += '<div>';
-        html += '<h1>' + productName + '</h1>';
+        let html = `<!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>${productName}</title>
+                    </head>
+                    <body>
+                        <div>
+                            <h1>${productName}</h1>`; // Adding the product description dynamically
         mediaUrls.forEach(url => {
-            html += '<img width="150" src="' + url + '" alt="Product Image">';
+            html += `<img width="150" src="${url}" alt="Product Image">`;
         });
-        html += '</div>';
-        html += '</body>';
-        html += '</html>';
+        html += `       </div>
+                    </body>
+                    </html>`;
 
         res.send(html);
     } catch (error) {
