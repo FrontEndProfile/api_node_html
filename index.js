@@ -85,5 +85,3 @@ app.get('/product/:id', async (req, res) => {
 // Ensure the server is listening on the correct port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-module.exports = app;
